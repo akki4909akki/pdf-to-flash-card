@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF to Flashcards</title>
+</head>
+<body>
+    <h1>Upload PDF to Create Flashcards</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="pdf" accept=".pdf" required>
+        <button type="submit">Generate Flashcards</button>
+    </form>
+
+    {% if flashcards %}
+        <h2>Flashcards</h2>
+        <ul>
+            {% for card in flashcards %}
+                <li><strong>Q:</strong> {{ card.question }}<br><strong>A:</strong> {{ card.answer }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
